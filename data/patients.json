@@ -1,11 +1,39 @@
 {
   "patients": [
     {
+      "PatientID": 1,
+      "Name": "Maria",
+      "Phone": "0766 666 666",
+      "Email": "exemplu@exemplu.com",
+      "Problem": "Cavities"
+    },
+    {
+      "PatientID": 2,
+      "Name": "Alex",
+      "Phone": "0756 112 222",
+      "Email": "exemplu@exemplu.com",
+      "Problem": "Cavities"
+    },
+    {
+      "PatientID": 3,
+      "Name": "Ion",
+      "Phone": "0943 242 122",
+      "Email": "example@example.com",
+      "Problem": "Cavities"
+    },
+    {
       "PatientID": 20,
       "Name": "Mihai Popescu",
       "Phone": "+40 757 898 321",
       "Email": "mihai.popescu@yahoo.com",
       "Problem": "Gingivitis"
+    },
+    {
+      "PatientID": 4,
+      "Name": "Alexia",
+      "Phone": "0756 321 123",
+      "Email": "example@example.com",
+      "Problem": "Cavitites"
     },
     {
       "PatientID": 1001,

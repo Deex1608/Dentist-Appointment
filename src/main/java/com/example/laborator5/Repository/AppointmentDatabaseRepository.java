@@ -11,7 +11,7 @@ public class AppointmentDatabaseRepository implements IRepository<Integer, Appoi
     protected Connection databaseConnection = null;
 
     public AppointmentDatabaseRepository(String filePath) {
-        this.databaseURL = "jdbc:sqlite:data/" +  filePath;
+        this.databaseURL = "jdbc:sqlite:D:/Uni/Sem3/RepoTemeMAP5/Laborator5/data/" +  filePath;
     }
 
     private void OpenConnection(){

@@ -30,4 +30,9 @@ public class UpdateCommand<ID, T extends IdentifiableInterface<ID>> implements I
     public void undo() {
         genericRepository.modify(elementID, oldElement);
     }
+
+    @Override
+    public IRepository<ID, T> getRepository() {
+        return genericRepository;
+    }
 }

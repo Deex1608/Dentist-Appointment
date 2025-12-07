@@ -29,4 +29,10 @@
         <Date>31/10/2025</Date>
         <Time>16:00</Time>
     </appointment>
+    <appointment>
+        <AppointmentID>6</AppointmentID>
+        <PatientID>14</PatientID>
+        <Date>12/12/2025</Date>
+        <Time>12:00</Time>
+    </appointment>
 </appointments>

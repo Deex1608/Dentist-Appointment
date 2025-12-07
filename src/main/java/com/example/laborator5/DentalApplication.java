@@ -2,7 +2,6 @@ package com.example.laborator5;
 
 import com.example.laborator5.Domain.Appointment;
 import com.example.laborator5.Domain.Patient;
-import com.example.laborator5.GUI.AddModifyPatientController;
 import com.example.laborator5.GUI.DentalGUIController;
 import com.example.laborator5.Repository.IRepository;
 import com.example.laborator5.Service.AppointmentService;

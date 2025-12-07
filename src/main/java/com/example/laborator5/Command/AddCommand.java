@@ -28,4 +28,9 @@ public class AddCommand<ID, T extends IdentifiableInterface<ID>> implements ICom
     public void undo() {
         genericRepository.delete(elementID);
     }
+
+    @Override
+    public IRepository<ID, T> getRepository() {
+        return genericRepository;
+    }
 }

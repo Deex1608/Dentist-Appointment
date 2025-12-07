@@ -26,6 +26,14 @@ public class AppointmentService implements IService<Integer> {
         return appointmentRepository.getAll();
     }
 
+    public IRepository<Integer, Appointment> getAppointmentRepository(){
+        return appointmentRepository;
+    }
+
+    public void setAppointmentRepository(IRepository<Integer, Appointment> appointmentRepository){
+        this.appointmentRepository = appointmentRepository;
+    }
+
     public void addAppointment(Integer AppointmentId, Integer PatientId, String AppointmentDate, String AppointmentTime) throws IllegalVariableType {
         AppointmentValidation AppointmentToBeVerified = new AppointmentValidation(AppointmentId, PatientId, AppointmentDate, AppointmentTime);
         Appointment newAppointment = new Appointment(AppointmentId, PatientId, AppointmentDate, AppointmentTime);

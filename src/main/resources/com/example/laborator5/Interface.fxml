@@ -14,16 +14,16 @@
          <top>
             <MenuBar BorderPane.alignment="CENTER">
               <menus>
-                <Menu mnemonicParsing="false">
-                     <graphic>
-                        <Button mnemonicParsing="false" text="UNDO" />
-                     </graphic>
-                </Menu>
-                <Menu mnemonicParsing="false">
-                     <graphic>
-                        <Button mnemonicParsing="false" text="REDO" />
-                     </graphic>
-                </Menu>
+                  <Menu mnemonicParsing="false">
+                      <graphic>
+                          <Button mnemonicParsing="false" fx:id="UndoButton" text="UNDO"
+                                  onAction="#handleUndo" /> </graphic>
+                  </Menu>
+                  <Menu mnemonicParsing="false">
+                      <graphic>
+                          <Button mnemonicParsing="false" fx:id="RedoButton" text="REDO"
+                                  onAction="#handleRedo" /> </graphic>
+                  </Menu>
               </menus>
             </MenuBar>
          </top>

@@ -14,7 +14,7 @@ module com.example.laborator5 {
     requires javafx.graphics;
     requires annotations;
     requires javafx.base;
-    requires com.example.laborator5;
+    requires java.rmi;
 
 
     opens com.example.laborator5 to javafx.fxml;

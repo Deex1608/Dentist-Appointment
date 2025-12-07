@@ -11,7 +11,7 @@ public class PatientDatabaseRepository implements IRepository<Integer, Patient> 
     protected Connection databaseConnection = null;
 
     public PatientDatabaseRepository(String filePath) {
-        this.databaseURL = "jdbc:sqlite:data/" +  filePath;
+        this.databaseURL = "jdbc:sqlite:D:/Uni/Sem3/RepoTemeMAP5/Laborator5/data/" +  filePath;
     }
 
     private void OpenConnection(){
@@ -136,8 +136,10 @@ public class PatientDatabaseRepository implements IRepository<Integer, Patient> 
             }
             this.CloseConnection();
             return listOfPatients;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException sqlException) {
+            throw new RuntimeException(sqlException);
+        } catch (NullPointerException nullPointerException){
+            throw new RuntimeException(nullPointerException);
         }
     }
 }

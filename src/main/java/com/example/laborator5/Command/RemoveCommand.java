@@ -28,4 +28,9 @@ public class RemoveCommand<ID, T extends IdentifiableInterface<ID>> implements I
     public void undo() {
         genericRepository.add(elementID, elementToRemove);
     }
+
+    @Override
+    public IRepository<ID, T> getRepository() {
+        return genericRepository;
+    }
 }

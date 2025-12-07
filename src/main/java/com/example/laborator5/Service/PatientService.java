@@ -25,6 +25,14 @@ public class PatientService implements IService<Integer> {
         return patientRepository.getAll();
     }
 
+    public IRepository<Integer, Patient> getPatientRepository(){
+        return patientRepository;
+    }
+
+    public void setPatientRepository(IRepository<Integer, Patient> patientRepository) {
+        this.patientRepository = patientRepository;
+    }
+
     public void addPatient(Integer PatientId, String PatientName, String PatientTelephone, String PatientEmail, String PatientProblem) throws IllegalVariableType {
         PatientValidation patientToBeValidate =  new PatientValidation(PatientId, PatientName, PatientTelephone, PatientEmail, PatientProblem);
         Patient NewPatient =  new Patient(PatientId, PatientName, PatientTelephone, PatientEmail, PatientProblem);
