@@ -1,0 +1,34 @@
+{
+  "appointments": [
+    {
+      "appointmentID": 1,
+      "patientID": 1001,
+      "date": "05/11/2025",
+      "time": "09:00"
+    },
+    {
+      "appointmentID": 2,
+      "patientID": 1002,
+      "date": "06/11/2025",
+      "time": "10:00"
+    },
+    {
+      "appointmentID": 3,
+      "patientID": 1003,
+      "date": "31/10/2025",
+      "time": "14:00"
+    },
+    {
+      "appointmentID": 4,
+      "patientID": 1004,
+      "date": "15/11/2025",
+      "time": "16:00"
+    },
+    {
+      "appointmentID": 5,
+      "patientID": 1005,
+      "date": "31/10/2025",
+      "time": "16:00"
+    }
+  ]
+}

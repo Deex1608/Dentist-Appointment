@@ -1,0 +1,32 @@
+<appointments>
+    <appointment>
+        <AppointmentID>1</AppointmentID>
+        <PatientID>1001</PatientID>
+        <Date>05/11/2025</Date>
+        <Time>09:00</Time>
+    </appointment>
+    <appointment>
+        <AppointmentID>2</AppointmentID>
+        <PatientID>1002</PatientID>
+        <Date>06/11/2025</Date>
+        <Time>10:00</Time>
+    </appointment>
+    <appointment>
+        <AppointmentID>3</AppointmentID>
+        <PatientID>1003</PatientID>
+        <Date>31/10/2025</Date>
+        <Time>14:00</Time>
+    </appointment>
+    <appointment>
+        <AppointmentID>4</AppointmentID>
+        <PatientID>1004</PatientID>
+        <Date>15/11/2025</Date>
+        <Time>16:00</Time>
+    </appointment>
+    <appointment>
+        <AppointmentID>5</AppointmentID>
+        <PatientID>1005</PatientID>
+        <Date>31/10/2025</Date>
+        <Time>16:00</Time>
+    </appointment>
+</appointments>

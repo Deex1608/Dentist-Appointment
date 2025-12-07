@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" fx:controller="com.example.laborator5.GUI.DentalGUIController" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="-2.0" layoutY="-2.0" prefHeight="600.0" prefWidth="800.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false" text="UNDO" />
+                     </graphic>
+                </Menu>
+                <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false" text="REDO" />
+                     </graphic>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+
+          <center>
+              <StackPane fx:id="mainContentPane">
+                 <children>
+
+                     <VBox fx:id="patientView" spacing="5" style="-fx-background-color: white;">
+                         <padding>
+                             <Insets bottom="10" left="10" right="10" top="10" />
+                         </padding>
+      <children>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <children>
+                                    <Button fx:id="addPatientButton" text="Add Patient" onAction="#handleAddPatient" />
+                                    <Button fx:id="deletePatientButton" text="Delete Patient" onAction="#handleDeletePatient" />
+                                    <Button fx:id="updatePatientButton" text="Update Patient" onAction="#handleUpdatePatient" />
+
+                                    <Separator orientation="VERTICAL" />
+                                    <Label text="Search Patient:" />
+                                    <TextField fx:id="patientSearchField" promptText="Enter Patient ID" HBox.hgrow="ALWAYS" />
+                                    <Button text="Search" onAction="#handleSearchPatients" />
+                                </children>
+                            </HBox>
+
+                            <TableView fx:id="patientTableView" VBox.vgrow="ALWAYS">
+                                <columns>
+                              <TableColumn fx:id="patientIdColumn" prefWidth="69.0" text="Id" />
+                                    <TableColumn fx:id="patientNameColumn" prefWidth="189.0" text="Name" />
+                              <TableColumn fx:id="patientPhoneNumberColumn" prefWidth="163.0" text="Phone Number" />
+                                    <TableColumn fx:id="patientEmailColumn" prefWidth="178.0" text="Email" />
+                              <TableColumn fx:id="patientProblemColumn" prefWidth="180.0" text="Problem" />
+                                </columns>
+                            </TableView>
+      </children>
+                     </VBox>
+
+                     <VBox fx:id="appointmentView" spacing="5" style="-fx-background-color: white;" visible="false">
+                         <padding>
+                             <Insets bottom="10" left="10" right="10" top="10" />
+                         </padding>
+      <children>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+         <children>
+                                   <Button  text="Add Appointment" onAction="#handleAddAppointment"/>
+                                   <Button  text="Delete Appointment" onAction="#handleDeleteAppointment"/>
+                                   <Button  text="Update Appointment" onAction="#handleUpdateAppointment"/>
+                                   <Separator orientation="VERTICAL" />
+                                   <Label text="Search Appointment:" />
+                                   <TextField fx:id="appointmentSearchField" promptText="Enter Appointment ID" HBox.hgrow="ALWAYS" />
+                                   <Button  text="Search" onAction="#handleSearchAppointments"/>
+         </children>
+                            </HBox>
+
+                            <TableView fx:id="appointmentTableView" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="appointmentIdColumn" prefWidth="50" text="ID" />
+                                    <TableColumn fx:id="appointmentPatientIdColumn" prefWidth="100" text="Patient ID" />
+                                    <TableColumn fx:id="appointmentDateColumn" prefWidth="120" text="Date" />
+                                    <TableColumn fx:id="appointmentTimeColumn" prefWidth="100" text="Time" />
+                                </columns>
+                            </TableView>
+      </children>
+                     </VBox>
+                 </children>
+
+              </StackPane>
+          </center>
+
+         <bottom>
+            <MenuBar prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false"  text="Patients" onAction="#handleShowPatients"/>
+                     </graphic>
+                </Menu>
+                <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false" text="Appointments" onAction="#handleShowAppointments"/>
+                     </graphic>
+                </Menu>
+                  <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false" text="Filter By" onAction="#handleFilterBy" />
+                     </graphic>
+                  </Menu>
+                  <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false" text="Group By" onAction="#handleGroupBy" />
+                     </graphic>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

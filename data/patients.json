@@ -1,0 +1,46 @@
+{
+  "patients": [
+    {
+      "PatientID": 20,
+      "Name": "Mihai Popescu",
+      "Phone": "+40 757 898 321",
+      "Email": "mihai.popescu@yahoo.com",
+      "Problem": "Gingivitis"
+    },
+    {
+      "PatientID": 1001,
+      "Name": "Alice Popescu",
+      "Phone": "+40 721 111 001",
+      "Email": "alice.popescu@example.com",
+      "Problem": "Cavities"
+    },
+    {
+      "PatientID": 1002,
+      "Name": "Bogdan Ionescu",
+      "Phone": "+40 721 111 002",
+      "Email": "bogdan.ionescu@example.com",
+      "Problem": "Gingivitis"
+    },
+    {
+      "PatientID": 1003,
+      "Name": "Carmen Radu",
+      "Phone": "+40 721 111 003",
+      "Email": "carmen.radu@example.com",
+      "Problem": "Tooth Sensitivity"
+    },
+    {
+      "PatientID": 1004,
+      "Name": "Daniela Petrescu",
+      "Phone": "+40 721 111 004",
+      "Email": "daniela.petrescu@example.com",
+      "Problem": "Malocclusion"
+    },
+    {
+      "PatientID": 1005,
+      "Name": "Eduard Marin",
+      "Phone": "+40 721 111 005",
+      "Email": "eduard.marin@example.com",
+      "Problem": "Cavities"
+    }
+  ]
+}

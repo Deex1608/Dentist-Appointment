@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.laborator5.GUI.DisplayAppointmentController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <padding>
+        <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
+    </padding>
+
+    <Label text="Appointment Results" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+
+    <TableView fx:id="appointmentTableView" AnchorPane.topAnchor="40.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <columns>
+            <TableColumn fx:id="appointmentIdColumn" text="Appointment Id" prefWidth="50">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="patientIdColumn" text="Patient Id" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="patientId" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="appointmentDateColumn" text="Appointment Date" prefWidth="120">
+                <cellValueFactory>
+                    <PropertyValueFactory property="appointmentDate" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="appointmentTimeColumn" text="Appointment Time" prefWidth="180">
+                <cellValueFactory>
+                    <PropertyValueFactory property="appointmentTime" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+
+</AnchorPane>

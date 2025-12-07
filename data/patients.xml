@@ -1,0 +1,37 @@
+<patients>
+    <patient>
+        <PatientID>1001</PatientID>
+        <Name>Alice Popescu</Name>
+        <Telephone>+40 721 111 001</Telephone>
+        <Email>alice.popescu@example.com</Email>
+        <Problem>Cavities</Problem>
+    </patient>
+    <patient>
+        <PatientID>1002</PatientID>
+        <Name>Bogdan Ionescu</Name>
+        <Telephone>+40 721 111 002</Telephone>
+        <Email>bogdan.ionescu@example.com</Email>
+        <Problem>Gingivitis</Problem>
+    </patient>
+    <patient>
+        <PatientID>1003</PatientID>
+        <Name>Carmen Radu</Name>
+        <Telephone>+40 721 111 003</Telephone>
+        <Email>carmen.radu@example.com</Email>
+        <Problem>Tooth Sensitivity</Problem>
+    </patient>
+    <patient>
+        <PatientID>1004</PatientID>
+        <Name>Daniela Petrescu</Name>
+        <Telephone>+40 721 111 004</Telephone>
+        <Email>daniela.petrescu@example.com</Email>
+        <Problem>Malocclusion</Problem>
+    </patient>
+    <patient>
+        <PatientID>1005</PatientID>
+        <Name>Eduard Marin</Name>
+        <Telephone>+40 721 111 005</Telephone>
+        <Email>eduard.marin@example.com</Email>
+        <Problem>Broken Teeth</Problem>
+    </patient>
+</patients>

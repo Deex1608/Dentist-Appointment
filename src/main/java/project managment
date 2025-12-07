@@ -1,0 +1,15 @@
+Validation stuffs
+
+- IValidation
+|___|_IDValidation
+|_ PatientValidation
+|___|_IDValidation @OVERRIDE
+|___|_NameValidation
+|___|_TelephoneValidation
+|___|_EmailValidation
+|___|_ProblemValidation
+|_AppointmentValidation
+|___|_IDValidation @OVERRIDE
+|___|_PatientIDValidation
+|___|_DateValidation
+|___|_TimeValidation

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.laborator5.GUI.GroupingController"
+            prefHeight="400.0" prefWidth="600.0">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+    </padding>
+
+    <GridPane layoutX="10.0" layoutY="10.0" prefWidth="380.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" vgap="15" hgap="10">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+        </columnConstraints>
+
+        <Label text="Select Criterion:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="groupCriterionComboBox" prefWidth="250.0"
+                  promptText="Choose a group option..."
+                  onAction="#handleCriterionSelection"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+    </GridPane>
+
+    <HBox spacing="10.0" alignment="CENTER_RIGHT" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <Button text="Apply Group" onAction="#handleApplyGroup" defaultButton="true" />
+        <Button text="Cancel" onAction="#handleCancel" cancelButton="true" />
+    </HBox>
+</AnchorPane>
