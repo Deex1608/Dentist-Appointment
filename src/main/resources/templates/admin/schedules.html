@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Daily Schedules – Admin – Dental Clinic</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-admin">
+    <div class="nav-brand">🦷 Dental Clinic Admin</div>
+    <div class="nav-links">
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/admin/appointments}">Appointments</a>
+        <a th:href="@{/admin/schedules}" class="active">Schedules</a>
+        <a th:href="@{/admin/patients}">Patients</a>
+        <form th:action="@{/logout}" method="post" style="display:inline">
+            <button type="submit" class="btn-link">Logout</button>
+        </form>
+    </div>
+</nav>
+
+<main class="main-content">
+    <div class="page-header">
+        <h1>Daily Schedule</h1>
+    </div>
+
+    <div class="filter-bar">
+        <form th:action="@{/admin/schedules}" method="get">
+            <div class="form-row" style="align-items:flex-end; gap:1rem">
+                <div class="form-group" style="margin:0">
+                    <label>Select Date</label>
+                    <input type="date" name="date" class="form-control"
+                           th:value="${selectedDate}"/>
+                </div>
+                <button type="submit" class="btn btn-primary">View Schedule</button>
+            </div>
+        </form>
+    </div>
+
+    <h2 th:text="'Schedule for ' + ${selectedDate}">Schedule for Today</h2>
+
+    <div th:if="${appointments.isEmpty()}" class="empty-state">
+        <p>No appointments scheduled for this date.</p>
+    </div>
+
+    <div th:unless="${appointments.isEmpty()}">
+        <div th:each="dentist : ${dentists}">
+            <div class="schedule-dentist-block">
+                <h3 th:text="${dentist.fullName + ' – ' + dentist.specialization}"></h3>
+                <div th:with="dentistAppts=${appointments.stream()
+                        .filter(a -> a.dentist.id == dentist.id).toList()}">
+                    <div th:if="${dentistAppts.isEmpty()}" class="empty-state-inline">
+                        No appointments scheduled.
+                    </div>
+                    <table th:unless="${dentistAppts.isEmpty()}" class="data-table">
+                        <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Patient</th>
+                            <th>Treatment</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="appt : ${dentistAppts}">
+                            <td th:text="${appt.appointmentTime}"></td>
+                            <td th:text="${appt.patient.fullName}"></td>
+                            <td th:text="${appt.treatmentType}"></td>
+                            <td><span class="badge" th:classappend="'badge-' + ${appt.status.name().toLowerCase()}"
+                                      th:text="${appt.status}"></span></td>
+                            <td th:text="${appt.notes != null ? appt.notes : '-'}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

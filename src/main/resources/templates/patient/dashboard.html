@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Patient Dashboard – Dental Clinic</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-brand">🦷 Dental Clinic</div>
+    <div class="nav-links">
+        <a th:href="@{/patient/dashboard}" class="active">Dashboard</a>
+        <a th:href="@{/patient/appointments}">Appointments</a>
+        <a th:href="@{/patient/book}">Book</a>
+        <a th:href="@{/patient/profile}">Profile</a>
+        <form th:action="@{/logout}" method="post" style="display:inline">
+            <button type="submit" class="btn-link">Logout</button>
+        </form>
+    </div>
+</nav>
+
+<main class="main-content">
+    <div class="page-header">
+        <h1>Welcome, <span th:text="${patient.firstName}">Patient</span>!</h1>
+        <p class="subtitle">Here's an overview of your appointments.</p>
+    </div>
+
+    <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number" th:text="${appointments.size()}">0</div>
+            <div class="stat-label">Total Appointments</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number"
+                 th:text="${appointments.stream().filter(a -> a.status.name() == 'PENDING').count()}">0</div>
+            <div class="stat-label">Pending</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number"
+                 th:text="${appointments.stream().filter(a -> a.status.name() == 'CONFIRMED').count()}">0</div>
+            <div class="stat-label">Confirmed</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number"
+                 th:text="${appointments.stream().filter(a -> a.status.name() == 'COMPLETED').count()}">0</div>
+            <div class="stat-label">Completed</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2>Recent Appointments</h2>
+            <a th:href="@{/patient/book}" class="btn btn-primary">+ Book New</a>
+        </div>
+
+        <div th:if="${appointments.isEmpty()}" class="empty-state">
+            <p>You have no appointments yet.</p>
+            <a th:href="@{/patient/book}" class="btn btn-primary">Book Your First Appointment</a>
+        </div>
+
+        <table th:unless="${appointments.isEmpty()}" class="data-table">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Dentist</th>
+                <th>Treatment</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="appt : ${appointments}" th:classappend="${apptStat.index >= 5} ? 'hidden' : ''">
+                <td th:text="${appt.appointmentDate}"></td>
+                <td th:text="${appt.appointmentTime}"></td>
+                <td th:text="${appt.dentist.fullName}"></td>
+                <td th:text="${appt.treatmentType}"></td>
+                <td><span class="badge" th:classappend="'badge-' + ${appt.status.name().toLowerCase()}"
+                          th:text="${appt.status}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div th:unless="${appointments.isEmpty()}" style="margin-top:1rem">
+            <a th:href="@{/patient/appointments}" class="btn btn-secondary">View All</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>
