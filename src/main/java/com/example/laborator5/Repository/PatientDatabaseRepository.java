@@ -11,7 +11,7 @@ public class PatientDatabaseRepository implements IRepository<Integer, Patient> 
     protected Connection databaseConnection = null;
 
     public PatientDatabaseRepository(String filePath) {
-        this.databaseURL = "jdbc:sqlite:D:/Uni/Sem3/RepoTemeMAP5/Laborator5/data/" +  filePath;
+        this.databaseURL = "jdbc:sqlite:D:/University-Repo/Year-2/Semester-1/MAP/labs/RepoTemeMAP5/Laborator5/data/" +  filePath;
     }
 
     private void OpenConnection(){
@@ -29,7 +29,7 @@ public class PatientDatabaseRepository implements IRepository<Integer, Patient> 
 
     private void CloseConnection(){
         try{
-            if(databaseConnection == null && databaseConnection.isClosed()){
+            if(databaseConnection == null || databaseConnection.isClosed()){
                 return;
             }
             databaseConnection.close();

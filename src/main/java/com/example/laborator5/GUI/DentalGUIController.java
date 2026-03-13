@@ -26,7 +26,6 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
-import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -161,13 +160,12 @@ public class DentalGUIController {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "This Patient is already in the List!");
                     alert.showAndWait();
                 } else {
-                    this.patientService.addPatient(newPatient.getId(), newPatient.getName(), newPatient.getTelephone(), newPatient.getEmail(), newPatient.getProblem());
-
-                    populateTablePatient();
+                    //this.patientService.addPatient(newPatient.getId(), newPatient.getName(), newPatient.getTelephone(), newPatient.getEmail(), newPatient.getProblem());
                     AddCommand<Integer, Patient> addCommand = new AddCommand<>(patientService.getPatientRepository(), newPatient.getId(), newPatient);
                     commandManagerPatient.executeCommand(addCommand);
-                    this.patientService.setPatientRepository(commandManagerPatient.getRepository());
+                    //this.patientService.setPatientRepository(commandManagerPatient.getRepository());
                     updateUndoRedoUI();
+                    populateTablePatient();
                 }
 
             }
@@ -192,16 +190,16 @@ public class DentalGUIController {
 
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 try {
-                    this.patientService.removePatient(selectedPatient.getId());
-                    populateTablePatient();
+                    //this.patientService.removePatient(selectedPatient.getId());
 
                     RemoveCommand<Integer, Patient> removeCommand = new RemoveCommand<>(patientService.getPatientRepository(), selectedPatient.getId(), selectedPatient);
                     commandManagerPatient.executeCommand(removeCommand);
-                    this.patientService.setPatientRepository(commandManagerPatient.getRepository());
+                    //this.patientService.setPatientRepository(commandManagerPatient.getRepository());
                     updateUndoRedoUI();
+                    populateTablePatient();
 
-                } catch (IllegalVariableType illegalVariableType) {
-                    Alert errorAlert = new Alert(Alert.AlertType.ERROR, illegalVariableType.getMessage());
+                } catch (Exception exception) {
+                    Alert errorAlert = new Alert(Alert.AlertType.ERROR, exception.getMessage());
                     errorAlert.showAndWait();
                 }
             }
@@ -241,13 +239,12 @@ public class DentalGUIController {
                     alert.showAndWait();
                 } else {
                     Patient currentPatient = this.patientService.findByIdAPatient(newPatient.getId());
-                    this.patientService.updatePatient(newPatient.getId(), newPatient.getName(), newPatient.getTelephone(), newPatient.getEmail(), newPatient.getProblem());
-                    populateTablePatient();
-
+                    //this.patientService.updatePatient(newPatient.getId(), newPatient.getName(), newPatient.getTelephone(), newPatient.getEmail(), newPatient.getProblem());
                     UpdateCommand<Integer, Patient> updateCommand = new UpdateCommand<>(patientService.getPatientRepository(), newPatient.getId(), newPatient, currentPatient);
                     commandManagerPatient.executeCommand(updateCommand);
-                    this.patientService.setPatientRepository(commandManagerPatient.getRepository());
+                    //this.patientService.setPatientRepository(commandManagerPatient.getRepository());
                     updateUndoRedoUI();
+                    populateTablePatient();
 
                 }
 
@@ -335,13 +332,12 @@ public class DentalGUIController {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "This Appointment is already in the List!");
                     alert.showAndWait();
                 } else {
-                    this.appointmentService.addAppointment(newAppointment.getId(), newAppointment.getPatientId(), newAppointment.getAppointmentDate(), newAppointment.getAppointmentTime());
-                    populateTableAppointment();
-
+                    //this.appointmentService.addAppointment(newAppointment.getId(), newAppointment.getPatientId(), newAppointment.getAppointmentDate(), newAppointment.getAppointmentTime());
                     AddCommand<Integer, Appointment> addCommand = new AddCommand<>(appointmentService.getAppointmentRepository(), newAppointment.getId(), newAppointment);
                     commandManagerAppointment.executeCommand(addCommand);
-                    this.appointmentService.setAppointmentRepository(commandManagerAppointment.getRepository());
+                    //this.appointmentService.setAppointmentRepository(commandManagerAppointment.getRepository());
                     updateUndoRedoUI();
+                    populateTableAppointment();
                 }
             }
 
@@ -364,13 +360,12 @@ public class DentalGUIController {
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                this.appointmentService.removeAppointment(selectedAppointment.getId());
-                populateTableAppointment();
-
+                //this.appointmentService.removeAppointment(selectedAppointment.getId());
                 RemoveCommand<Integer, Appointment> removeCommand = new RemoveCommand<>(appointmentService.getAppointmentRepository(), selectedAppointment.getId(), selectedAppointment);
                 commandManagerAppointment.executeCommand(removeCommand);
-                this.appointmentService.setAppointmentRepository(commandManagerAppointment.getRepository());
+                //this.appointmentService.setAppointmentRepository(commandManagerAppointment.getRepository());
                 updateUndoRedoUI();
+                populateTableAppointment();
 
             }
         } else {
@@ -408,13 +403,12 @@ public class DentalGUIController {
                     alert.showAndWait();
                 } else {
                     Appointment currentAppointment = this.appointmentService.findByIdAnAppointment(newAppointment.getId());
-                    this.appointmentService.modifyAppointment(newAppointment.getId(), newAppointment.getPatientId(), newAppointment.getAppointmentDate(), newAppointment.getAppointmentTime());
-                    populateTableAppointment();
-
+                    //this.appointmentService.modifyAppointment(newAppointment.getId(), newAppointment.getPatientId(), newAppointment.getAppointmentDate(), newAppointment.getAppointmentTime());
                     UpdateCommand<Integer, Appointment> updateCommand = new UpdateCommand<>(appointmentService.getAppointmentRepository(), newAppointment.getId(), newAppointment, currentAppointment);
                     commandManagerAppointment.executeCommand(updateCommand);
-                    this.appointmentService.setAppointmentRepository(commandManagerAppointment.getRepository());
+                    //this.appointmentService.setAppointmentRepository(commandManagerAppointment.getRepository());
                     updateUndoRedoUI();
+                    populateTableAppointment();
                 }
             }
 

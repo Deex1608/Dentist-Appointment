@@ -54,7 +54,7 @@ public class AddModifyPatientController {
     @FXML
     void addNewPatientButtonHandler(ActionEvent event) {
         try {
-            int patientId = Integer.parseInt(newPatientIdTextField.getText());
+            Integer patientId = Integer.parseInt(newPatientIdTextField.getText());
             String name = newPatientNameTextField.getText();
             String phoneNumber = newPatientTelephoneTextField.getText();
             String email = newPatientEmailTextField.getText();

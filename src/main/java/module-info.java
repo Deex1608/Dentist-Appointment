@@ -1,5 +1,5 @@
 module com.example.laborator5 {
-    requires javafx.controls;
+    //requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
 

@@ -35,4 +35,22 @@
         <Date>12/12/2025</Date>
         <Time>12:00</Time>
     </appointment>
+    <appointment>
+        <AppointmentID>7</AppointmentID>
+        <PatientID>4</PatientID>
+        <Date>12/12/2025</Date>
+        <Time>12:00</Time>
+    </appointment>
+    <appointment>
+        <AppointmentID>8</AppointmentID>
+        <PatientID>10</PatientID>
+        <Date>12/12/2025</Date>
+        <Time>14:00</Time>
+    </appointment>
+    <appointment>
+        <AppointmentID>9</AppointmentID>
+        <PatientID>4</PatientID>
+        <Date>23/12/2025</Date>
+        <Time>17:00</Time>
+    </appointment>
 </appointments>
