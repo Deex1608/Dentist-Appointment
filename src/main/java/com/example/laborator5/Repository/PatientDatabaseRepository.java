@@ -11,7 +11,7 @@ public class PatientDatabaseRepository implements IRepository<Integer, Patient> 
     protected Connection databaseConnection = null;
 
     public PatientDatabaseRepository(String filePath) {
-        this.databaseURL = "jdbc:sqlite:D:/University-Repo/Year-2/Semester-1/MAP/labs/RepoTemeMAP5/Laborator5/data/" +  filePath;
+        this.databaseURL = "jdbc:sqlite:D:/Projects/Dental Appointment Manager/data/" +  filePath;
     }
 
     private void OpenConnection(){
