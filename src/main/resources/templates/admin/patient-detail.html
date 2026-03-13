@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Patient Detail – Admin – Dental Clinic</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-admin">
+    <div class="nav-brand">🦷 Dental Clinic Admin</div>
+    <div class="nav-links">
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/admin/appointments}">Appointments</a>
+        <a th:href="@{/admin/schedules}">Schedules</a>
+        <a th:href="@{/admin/patients}" class="active">Patients</a>
+        <form th:action="@{/logout}" method="post" style="display:inline">
+            <button type="submit" class="btn-link">Logout</button>
+        </form>
+    </div>
+</nav>
+
+<main class="main-content">
+    <div class="page-header">
+        <h1 th:text="${patient.fullName}">Patient Name</h1>
+        <a th:href="@{/admin/patients}" class="btn btn-secondary">← Back to Patients</a>
+    </div>
+
+    <div class="card" style="max-width:700px; margin:0 auto">
+        <h2>Personal Information</h2>
+        <dl class="detail-list">
+            <dt>Full Name</dt><dd th:text="${patient.fullName}"></dd>
+            <dt>Email</dt><dd th:text="${patient.user.email}"></dd>
+            <dt>Phone</dt><dd th:text="${patient.phone != null ? patient.phone : 'Not provided'}"></dd>
+            <dt>Date of Birth</dt><dd th:text="${patient.dateOfBirth != null ? patient.dateOfBirth : 'Not provided'}"></dd>
+            <dt>Address</dt><dd th:text="${patient.address != null ? patient.address : 'Not provided'}"></dd>
+            <dt>Medical History</dt>
+            <dd th:text="${patient.medicalHistory != null ? patient.medicalHistory : 'None recorded'}"></dd>
+        </dl>
+    </div>
+</main>
+</body>
+</html>
